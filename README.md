@@ -1,4 +1,4 @@
 gltexture
 =========
 
-A simple example of using 2d textures int modern opengl
+A simple example of using 2d textures in modern opengl
