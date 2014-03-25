@@ -5,29 +5,29 @@
 
 #include <string.h>
 
-static const char* vertexShaderCode = "                                             \n\
-#version 120                                                                        \n\
-																					\n\
-attribute vec3 Position;                                                            \n\
-attribute vec2 UV;                                                                  \n\
-varying vec2 outUV;                                                                 \n\
-																					\n\
-void main() {                                                                       \n\
-	vec2 size = Position.xy - vec2(400, 300);										\n\
-	size /= vec2(400, -300);														\n\
-	gl_Position = vec4(size, 0, 1);													\n\
-																					\n\
-	outUV = UV;																		\n\
+static const char* vertexShaderCode = "           \n\
+#version 120                                      \n\
+                                                  \n\
+attribute vec3 Position;                          \n\
+attribute vec2 UV;                                \n\
+varying vec2 outUV;                               \n\
+                                                  \n\
+void main() {                                     \n\
+	vec2 size = Position.xy - vec2(400, 300);     \n\
+	size /= vec2(400, -300);                      \n\
+	gl_Position = vec4(size, 0, 1);               \n\
+                                                  \n\
+	outUV = UV;                                   \n\
 }";
 
-static const char* fragmentShaderCode = "                                           \n\
-#version 120                                                                        \n\
-																					\n\
-varying vec2 outUV;						                                            \n\
-uniform sampler2D sampler;														    \n\
-																					\n\
-void main() {                                                                       \n\
-	gl_FragColor = texture2D(sampler, outUV);							  	        \n\
+static const char* fragmentShaderCode = "         \n\
+#version 120                                      \n\
+                                                  \n\
+varying vec2 outUV;						          \n\
+uniform sampler2D sampler;                        \n\
+                                                  \n\
+void main() {                                     \n\
+	gl_FragColor = texture2D(sampler, outUV);     \n\
 }";
 
 SDL_Window * window;
