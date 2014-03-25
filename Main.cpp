@@ -13,21 +13,21 @@ attribute vec2 UV;                                \n\
 varying vec2 outUV;                               \n\
                                                   \n\
 void main() {                                     \n\
-	vec2 size = Position.xy - vec2(400, 300);     \n\
-	size /= vec2(400, -300);                      \n\
-	gl_Position = vec4(size, 0, 1);               \n\
+	vec2 size = Position.xy - vec2(400, 300); \n\
+	size /= vec2(400, -300);                  \n\
+	gl_Position = vec4(size, 0, 1);           \n\
                                                   \n\
-	outUV = UV;                                   \n\
+	outUV = UV;                               \n\
 }";
 
 static const char* fragmentShaderCode = "         \n\
 #version 120                                      \n\
                                                   \n\
-varying vec2 outUV;						          \n\
+varying vec2 outUV;                               \n\
 uniform sampler2D sampler;                        \n\
                                                   \n\
 void main() {                                     \n\
-	gl_FragColor = texture2D(sampler, outUV);     \n\
+	gl_FragColor = texture2D(sampler, outUV); \n\
 }";
 
 SDL_Window * window;
@@ -93,13 +93,13 @@ void drawGLTexture(GLuint textureID, float x, float y, int textureW, int texture
 	glBindBuffer(GL_ARRAY_BUFFER, textureVBO);
 
 	GLfloat textureVertexData[] = {
-		x, y, 							0, 0,
-		x, y + textureH, 				0, 1.0f,
-		x + textureW, y, 				1.0f, 0,
+		x, y, 0, 0,
+		x, y + textureH, 0, 1.0f,
+		x + textureW, y, 1.0f, 0,
 
-		x, y + textureH, 				0, 1.0f,
-		x + textureW, y + textureH, 	1.0f, 1.0f,
-		x + textureW, y, 				1.0f, 0
+		x, y + textureH, 0, 1.0f,
+		x + textureW, y + textureH, 1.0f, 1.0f,
+		x + textureW, y, 1.0f, 0
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof(textureVertexData), textureVertexData, GL_STATIC_DRAW);
 
@@ -130,7 +130,7 @@ int main(int argc, char * args[]) {
 	glUseProgram(program);
 
 	SDL_Surface * texture = IMG_Load("texture.png");
-    GLuint textureID = createGLTextureFromSurface(texture);
+	GLuint textureID = createGLTextureFromSurface(texture);
 	SDL_FreeSurface(texture);
 
 	drawGLTexture(textureID, 50, 100, 512, 512);	
