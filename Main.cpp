@@ -13,9 +13,9 @@ attribute vec2 UV;                                \n\
 varying vec2 outUV;                               \n\
                                                   \n\
 void main() {                                     \n\
-	vec2 size = Position.xy - vec2(400, 300); \n\
-	size /= vec2(400, -300);                  \n\
-	gl_Position = vec4(size, 0, 1);           \n\
+	vec2 pos = Position.xy - vec2(400, 300);  \n\
+	pos /= vec2(400, -300);                   \n\
+	gl_Position = vec4(pos, 0, 1);            \n\
                                                   \n\
 	outUV = UV;                               \n\
 }";
